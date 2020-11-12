@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //交换两个元素
+    function swap(arr, i, j) {
+        var temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }   
+
+    function insertSort(arr) {
+        for (var i = 1; i < arr.length; i++) {
+            //默认以左边的第i元素为有序,从他的右边元素开始从右向左开始遍历,右边小于左边就交换两个元素
+            for (var j = i; j > 0; j--) {
+                if (arr[j] < arr[j - 1]) {
+                    swap(arr,j,j-1)
+                }else{
+                    break;
+                }
+            }
+        }
+    }
+    var arr = [3, 5, 6, 8, 2, 4, 7, 9, 1, 10];
+    insertSort(arr);
+    console.log(arr)
+</script>
+
+</html>

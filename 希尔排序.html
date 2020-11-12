@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+</body>
+<script>
+    //交换两个元素
+    function swap(arr, i, j) {
+        var temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    //插入排序的升级版
+    function shellSort(arr) {
+        var h = 1;
+        //确定初始步长的方法
+        while (h < Math.floor(arr.length / 2)) {
+            h = h * 2 + 1;
+        }
+        //每个循环初始步长都减半
+        while (h >= 1) {
+            console.log(h)
+            for (var i = h; i < arr.length; i++) {
+                for (var j = i;j>=h;j-=h) {
+                    if (arr[j] < arr[j-h]) {
+                        swap(arr,j,j-h)
+                    } else {
+                        break;
+                    }
+                }
+            }
+            h = Math.floor(h/2)
+        }
+    }
+    var arr = [3, 5, 6, 8, 2, 4, 7, 9, 1, 10];
+    shellSort(arr);
+    console.log(arr)
+</script>
+
+</html>
